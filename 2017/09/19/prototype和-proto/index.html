@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhouyuzhuo1123.github.io">
-  <title>Archives: 2018 | 多肉的博客</title>
+  <title>prototype和__proto__ | 多肉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="也许似乎大概是 然后未必不见得">
-<meta name="keywords" content="html,css,js,vue,angular,node">
-<meta property="og:type" content="website">
-<meta property="og:title" content="多肉的博客">
-<meta property="og:url" content="https://zhouyuzhuo1123.github.io/archives/2018/index.html">
+  <meta name="description" content="prototype和proto介绍 1 所有的对象多有proto 属性,这个属性属于该对象的原型；2 所有的函数对象都有prototype,当一个函数被设置为构造函数式，他的prototype 属性就是被设置为 它的所有实例 proto属性的 原型3 两者关系:对象的内部原型(proto)和构造器的原型（prototype）的关系。  所有构造器/函数的proto 都指向 Function.pro">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="prototype和__proto__">
+<meta property="og:url" content="https://zhouyuzhuo1123.github.io/2017/09/19/prototype和-proto/index.html">
 <meta property="og:site_name" content="多肉的博客">
-<meta property="og:description" content="也许似乎大概是 然后未必不见得">
+<meta property="og:description" content="prototype和proto介绍 1 所有的对象多有proto 属性,这个属性属于该对象的原型；2 所有的函数对象都有prototype,当一个函数被设置为构造函数式，他的prototype 属性就是被设置为 它的所有实例 proto属性的 原型3 两者关系:对象的内部原型(proto)和构造器的原型（prototype）的关系。  所有构造器/函数的proto 都指向 Function.pro">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-30T10:24:53.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多肉的博客">
-<meta name="twitter:description" content="也许似乎大概是 然后未必不见得">
+<meta name="twitter:title" content="prototype和__proto__">
+<meta name="twitter:description" content="prototype和proto介绍 1 所有的对象多有proto 属性,这个属性属于该对象的原型；2 所有的函数对象都有prototype,当一个函数被设置为构造函数式，他的prototype 属性就是被设置为 它的所有实例 proto属性的 原型3 两者关系:对象的内部原型(proto)和构造器的原型（prototype）的关系。  所有构造器/函数的proto 都指向 Function.pro">
   
     <link rel="alternative" href="/atom.xml" title="多肉的博客" type="application/atom+xml">
   
@@ -140,36 +141,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-prototype和-proto" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      prototype和__proto__
+    </h1>
+  
+
+        
+        <a href="/2017/09/19/prototype和-proto/" class="archive-article-date">
+  	<time datetime="2017-09-19T10:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="prototype和proto"><a href="#prototype和proto" class="headerlink" title="prototype和proto"></a>prototype和<strong>proto</strong></h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>1 所有的对象多有<strong>proto</strong> 属性,这个属性属于该对象的原型；<br>2 所有的函数对象都有prototype,当一个函数被设置为构造函数式，他的prototype 属性就是被设置为 它的所有实例 <strong>proto</strong>属性的 原型<br>3 两者关系:对象的内部原型(<strong>proto</strong>)和构造器的原型（prototype）的关系。</p>
+</blockquote>
+<h3 id="所有构造器-函数的proto-都指向-Function-prototype"><a href="#所有构造器-函数的proto-都指向-Function-prototype" class="headerlink" title="所有构造器/函数的proto 都指向 Function.prototype;"></a>所有构造器/函数的<strong>proto</strong> 都指向 Function.prototype;</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Boolean.__proto__ === Function.prototye;// true</span><br><span class="line">Array.__proto__ === Function.prototye;// true</span><br><span class="line">Object.__proto__ === Function.prototype  // true</span><br><span class="line">Function.__proto__ === Function.prototype // true</span><br><span class="line">Array.__proto__ === Function.prototype   // true</span><br><span class="line">RegExp.__proto__ === Function.prototype  // true</span><br><span class="line">Error.__proto__ === Function.prototype   // true</span><br><span class="line">Date.__proto__ === Function.prototype // true</span><br></pre></td></tr></table></figure>
+<p>JavaScript中有内置(build-in)构造器/对象共计12个（ES5中新加了JSON），这里列举了可访问的8个构造器。剩下如Global不能直接访问，Arguments仅在函数调用时由JS引擎创建，Math，JSON是以对象形式存在的，无需new。它们的<strong>proto</strong>是Object.prototype。如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Math.__proto__ === Object.prototype  // true</span><br><span class="line">JSON.__proto__ === Object.prototype  // true</span><br></pre></td></tr></table></figure>
+<p>上面说的“所有构造器/函数”当然包括自定义的。如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">// 函数表达式</span><br><span class="line">var Man = function() &#123;&#125;</span><br><span class="line">console.log(Person.__proto__ === Function.prototype) // true</span><br><span class="line">console.log(Man.__proto__ === Function.prototype)    // true</span><br></pre></td></tr></table></figure></p>
+<p>这说明什么呢？</p>
+<p>所有的构造器都来自于Function.prototype，甚至包括根构造器Object及Function自身。所有构造器都继承了Function.prototype的属性及方法。如length、call、apply、bind（ES5）。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>因为每个对象和原型都有原型，对象的原型指向原型对象，<br>而父的原型又指向父的父，这种原型层层连接起来的就构成了原型链。</p>
+<h3 id="属性查找"><a href="#属性查找" class="headerlink" title="属性查找"></a>属性查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age)&#123; </span><br><span class="line">    this.name = name; </span><br><span class="line">    this.age = age; </span><br><span class="line">  &#125; </span><br><span class="line">Person.prototype.MaxNumber = 9999;</span><br><span class="line">Person.__proto__.MinNumber = -9999;</span><br><span class="line">var will = new Person(&quot;Will&quot;, 28); </span><br><span class="line">console.log(will.MaxNumber); // 9999 </span><br><span class="line">console.log(will.MinNumber); // undefined </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Proson.__proto__ === Function.prototype;//true;</span><br><span class="line">will.__proto__ === Person.prototype;//true;</span><br><span class="line">will.controuctor.prototype === Person.prototype//true;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/setTimeout和setTinerval时间精度/" class="archive-article-date">
-  	<time datetime="2018-05-30T10:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/setTimeout和setTinerval时间精度/">setTimeout和setTinerval时间精度</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -181,175 +213,110 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhouyuzhuo1123.github.io/2017/09/19/prototype和-proto/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/css-动画/" class="archive-article-date">
-  	<time datetime="2018-05-21T10:12:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/09/30/浏览器重绘、重排/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浏览器重绘、重排
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/css-动画/">css 动画</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/11/vue-数据双向绑定/" class="archive-article-date">
-  	<time datetime="2018-04-11T07:09:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/11/vue-数据双向绑定/">vue-数据双向绑定demo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/08/webpack打包相关说说/" class="archive-article-date">
-  	<time datetime="2018-03-08T10:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/08/webpack打包相关说说/">webpack打包相关说说</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/12/js-event-loop/" class="archive-article-date">
-  	<time datetime="2018-02-12T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/12/js-event-loop/">js event loop</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -372,8 +339,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

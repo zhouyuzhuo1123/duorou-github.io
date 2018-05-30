@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhouyuzhuo1123.github.io">
-  <title>Archives: 2018 | 多肉的博客</title>
+  <title>开发过程中的html | 多肉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="也许似乎大概是 然后未必不见得">
-<meta name="keywords" content="html,css,js,vue,angular,node">
-<meta property="og:type" content="website">
-<meta property="og:title" content="多肉的博客">
-<meta property="og:url" content="https://zhouyuzhuo1123.github.io/archives/2018/index.html">
+  <meta name="description" content="工作中的html细节;ios overflow:auto 滑动加速; webkit-overflow-scrolling : touch; 属性控制元素在移动设备上是否使用滚动回弹效果.https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling  ios input框上部有阴影; input{    -we">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发过程中的html">
+<meta property="og:url" content="https://zhouyuzhuo1123.github.io/2017/10/30/开发过程中的html/index.html">
 <meta property="og:site_name" content="多肉的博客">
-<meta property="og:description" content="也许似乎大概是 然后未必不见得">
+<meta property="og:description" content="工作中的html细节;ios overflow:auto 滑动加速; webkit-overflow-scrolling : touch; 属性控制元素在移动设备上是否使用滚动回弹效果.https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling  ios input框上部有阴影; input{    -we">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://img.blog.csdn.net/20160803181209922">
+<meta property="og:updated_time" content="2018-05-30T10:25:34.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多肉的博客">
-<meta name="twitter:description" content="也许似乎大概是 然后未必不见得">
+<meta name="twitter:title" content="开发过程中的html">
+<meta name="twitter:description" content="工作中的html细节;ios overflow:auto 滑动加速; webkit-overflow-scrolling : touch; 属性控制元素在移动设备上是否使用滚动回弹效果.https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling  ios input框上部有阴影; input{    -we">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160803181209922">
   
     <link rel="alternative" href="/atom.xml" title="多肉的博客" type="application/atom+xml">
   
@@ -140,216 +143,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-开发过程中的html" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开发过程中的html
+    </h1>
+  
+
+        
+        <a href="/2017/10/30/开发过程中的html/" class="archive-article-date">
+  	<time datetime="2017-10-30T10:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="工作中的html细节"><a href="#工作中的html细节" class="headerlink" title="工作中的html细节;"></a>工作中的html细节;</h1><h3 id="ios-overflow-auto-滑动加速"><a href="#ios-overflow-auto-滑动加速" class="headerlink" title="ios overflow:auto 滑动加速;"></a>ios overflow:auto 滑动加速;</h3><blockquote>
+<p>webkit-overflow-scrolling : touch; 属性控制元素在移动设备上是否使用滚动回弹效果.<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling</a></p>
+</blockquote>
+<h3 id="ios-input框上部有阴影"><a href="#ios-input框上部有阴影" class="headerlink" title="ios input框上部有阴影;"></a>ios input框上部有阴影;</h3><blockquote>
+<p>input{<br>    -webkit-appearance: none;<br>}</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="img放在div中div的高度会大于img的高度-3px左右"><a href="#img放在div中div的高度会大于img的高度-3px左右" class="headerlink" title="img放在div中div的高度会大于img的高度(3px左右)"></a>img放在div中div的高度会大于img的高度(3px左右)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id = &quot;header&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;img/header.png&quot;/&gt; </span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">#header&#123;</span><br><span class="line">    width : 400px ;</span><br><span class="line">    border : 1px solid #000 ; /* 为了方便观察，此处给div加了1px的边框 */</span><br><span class="line">&#125;</span><br><span class="line">#header img&#123;</span><br><span class="line">    width: 100% ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20160803181209922" alt="image"></p>
+<blockquote>
+<p>可以明显看到div实际高度高出img高度3px。为了解决此问题，我们只需要给img元素添加一个display : block ;<a href="https://jingyan.baidu.com/article/7082dc1c69dc6fe40a89bdfe.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/7082dc1c69dc6fe40a89bdfe.html</a></p>
+</blockquote>
+<h3 id="img-srcset-””-二倍图-三倍图"><a href="#img-srcset-””-二倍图-三倍图" class="headerlink" title="img srcset=”” 二倍图 三倍图;"></a>img srcset=”” 二倍图 三倍图;</h3><blockquote>
+<p>以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图像;以最合适的src去匹配不同屏幕（高分屏低分屏如Retina；大屏小屏）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;source.jpg&quot; srcset=&quot;source_2x.jpg 2x, source_3x.jpg 3x&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;source.jpg&quot; width=&quot;100%&quot;</span><br><span class="line">  srcset=&quot;source_400.jpg 400w, source_600.jpg 600w, source_1280.jpg 1280w&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>2x、3x 表示目标屏幕的像素密度；400w、600w表示目标浏览器的宽度的限度，如浏览器宽度550w时，匹配600w的src。</p>
+</blockquote>
+<h3 id="canvas-手机端宽度100"><a href="#canvas-手机端宽度100" class="headerlink" title="canvas 手机端宽度100%"></a>canvas 手机端宽度100%</h3><blockquote>
+<p>canvas 在手机中 如果设置在元素上width 则不起作用,如果设置在css 上那么画布里面的图像会被拉伸。只有获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var viewHeight=window.innerHeight||document.documentElement.clientHeight;</span><br><span class="line">var viewWidth=window.innerWidth||document.documentElement.clientWidth;</span><br><span class="line">canvas.width=viewWidth;</span><br><span class="line">canvas.height=viewHeight;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>显然我们可以根据这个viewport的大小来设置width和height。<br>canvas显然是可以响应式的根据不同设备的视口大小来设置canvas的宽高。<br>而且用JS设置这个宽高，也不会像用CSS那样造成视图拉伸的不良效果。</p>
+<h3 id="transition-property-0-2s-linear-0s"><a href="#transition-property-0-2s-linear-0s" class="headerlink" title="transition: property 0.2s linear 0s;"></a>transition: property 0.2s linear 0s;</h3><blockquote>
+<p>property 是设置DOM变化的CSS属性比如 宽度，高度，transform。例如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.animateleft&#123;</span><br><span class="line">	transform:translate(-100%,0);</span><br><span class="line">	transition: -webkit-transform 0.2s linear 0s;</span><br><span class="line">&#125;</span><br><span class="line">.animateright&#123;</span><br><span class="line">	transform:translate(0,0);</span><br><span class="line">	transition: -webkit-transform 0.2s linear 0s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="max-age"><a href="#max-age" class="headerlink" title="max-age"></a>max-age</h3><blockquote>
+<p>游览器缓存时间 max-age &lt;=0的时候 每次请求都拿服务器不使用浏览器缓存.<br>有服务端设置 response-header cache-control</p>
+</blockquote>
+<h3 id="offset-top和offsetTop"><a href="#offset-top和offsetTop" class="headerlink" title="offset().top和offsetTop;"></a>offset().top和offsetTop;</h3><p>首先offset() 是jq对象拥有的获取元素顶部到窗口顶部的距离（出现滚动条是还是按到窗口顶部的距离），offsetTop 是dom 拥有的 获取元素到文档顶部的距离</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态最根本的作用就是通过把过程化的条件分支语句转化为对象的多态性，从而<br>消除这些条件分支语句</p>
+<h3 id="this"><a href="#this" class="headerlink" title="this;"></a>this;</h3><blockquote>
+<p>this是函数被调用时所处上下文；而不是函数创建是所处的环境（但是箭头函数就是指创建函数时的上下文）</p>
+</blockquote>
+<p>###cookie<br>js 可以设置cookie 需要注意点 cookie 有path属性 还有 Domain属性 如果设置的时候只设置value 那么狠可能是新增了一个字段;一定要同时保持 path Domain属性一致的时候才能设置成功</p>
+<h3 id="pointer-events-none"><a href="#pointer-events-none" class="headerlink" title="pointer-events:none;"></a>pointer-events:none;</h3><p>pointer-events:none 顾名思意，就是鼠标事件拜拜的意思。元素应用了该CSS属性，链接啊，点击啊什么的都变成了“浮云牌酱油”。;可以用它做去重复点击</p>
+<h3 id="Notifications-API"><a href="#Notifications-API" class="headerlink" title="Notifications API"></a>Notifications API</h3><blockquote>
+<p>Notification API 是 HTML5 新增的桌面通知 API，用于向用户显示通知信息。该通知是脱离浏览器的，即使用户没有停留在当前标签页，甚至最小化了浏览器，该通知信息也一样会置顶显示出来。</p>
+</blockquote>
+<h3 id="Parcel"><a href="#Parcel" class="headerlink" title="Parcel"></a>Parcel</h3><blockquote>
+<p>一个新的前端项目构建工具。一个好的打包工具在前端工程中占着比较重要的地位。然，何谓之好？或功能强大，或简单易用，或提高效率，或适合自己。在时代不断发展中，一个个好的工具正在被一个更好的工具所替代。随着对 webpack 复杂配置的吐槽声越来越多，Parcel 打着 “快速、零配置” 的旗子出来了。</p>
+</blockquote>
+<h3 id="CSS3-filter"><a href="#CSS3-filter" class="headerlink" title="CSS3 filter"></a>CSS3 filter</h3><blockquote>
+<p>给图片做滤镜</p>
+</blockquote>
+<h3 id="web手机调试工具-Charles"><a href="#web手机调试工具-Charles" class="headerlink" title="web手机调试工具 Charles"></a>web手机调试工具 Charles</h3><blockquote>
+<p>手机中的手机请求包都可以在电脑中显示，调试专用.</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/setTimeout和setTinerval时间精度/" class="archive-article-date">
-  	<time datetime="2018-05-30T10:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/setTimeout和setTinerval时间精度/">setTimeout和setTinerval时间精度</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhouyuzhuo1123.github.io/2017/10/30/开发过程中的html/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/css-动画/" class="archive-article-date">
-  	<time datetime="2018-05-21T10:12:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/02/12/js-event-loop/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js event loop
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/30/浏览器重绘、重排/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器重绘、重排</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/css-动画/">css 动画</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/11/vue-数据双向绑定/" class="archive-article-date">
-  	<time datetime="2018-04-11T07:09:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/11/vue-数据双向绑定/">vue-数据双向绑定demo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/08/webpack打包相关说说/" class="archive-article-date">
-  	<time datetime="2018-03-08T10:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/08/webpack打包相关说说/">webpack打包相关说说</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/12/js-event-loop/" class="archive-article-date">
-  	<time datetime="2018-02-12T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/12/js-event-loop/">js event loop</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -372,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

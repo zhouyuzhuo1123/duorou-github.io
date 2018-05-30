@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhouyuzhuo1123.github.io">
-  <title>Hexo</title>
+  <title>多肉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="也许似乎大概是 然后未必不见得">
 <meta name="keywords" content="html,css,js,vue,angular,node">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="多肉的博客">
 <meta property="og:url" content="https://zhouyuzhuo1123.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="多肉的博客">
 <meta property="og:description" content="也许似乎大概是 然后未必不见得">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="多肉的博客">
 <meta name="twitter:description" content="也许似乎大概是 然后未必不见得">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="多肉的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -59,8 +59,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -69,19 +67,11 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/zhouyuzhuo1123" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -115,14 +105,12 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/zhouyuzhuo1123" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -137,9 +125,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -156,6 +142,329 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-setTimeout和setTinerval时间精度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/setTimeout和setTinerval时间精度/">setTimeout和setTinerval时间精度</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/30/setTimeout和setTinerval时间精度/" class="archive-article-date">
+  	<time datetime="2018-05-30T10:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="setTimeout和setTinerval时间精度"><a href="#setTimeout和setTinerval时间精度" class="headerlink" title="setTimeout和setTinerval时间精度"></a>setTimeout和setTinerval时间精度</h2><h3 id="setTimeout-延迟-执行"><a href="#setTimeout-延迟-执行" class="headerlink" title="setTimeout 延迟 执行"></a>setTimeout 延迟 执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var message = document.getElementById(&quot;test&quot;);  </span><br><span class="line">var count = 1000;  </span><br><span class="line">function animate() &#123;  </span><br><span class="line">    var start = +new Date();  </span><br><span class="line">    message.innerHTML = count--;  </span><br><span class="line">    var finish = +new Date();  </span><br><span class="line">    setTimeout(animate, 1000 - (finish-start));  </span><br><span class="line">      </span><br><span class="line">&#125;  </span><br><span class="line">animate();</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/05/30/setTimeout和setTinerval时间精度/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/30/setTimeout和setTinerval时间精度/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-css-动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/21/css-动画/">css 动画</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/21/css-动画/" class="archive-article-date">
+  	<time datetime="2018-05-21T10:12:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="animation-与-transition"><a href="#animation-与-transition" class="headerlink" title="animation 与 transition"></a>animation 与 transition</h3><blockquote>
+<p>animation（动画）、transition（过渡）、transform（变形）、translate（移动）。</p>
+</blockquote>
+<blockquote>
+<p>animation（动画）、transition（过渡）是css3中的两种动画属性。animation强调流程与控制，对元素的一个或多个属性的变化进行控制，可以有多个关键帧（animation 和@ keyframes结合使用）；</p>
+</blockquote>
+<blockquote>
+<p>transition强调过渡，是元素的一个或多个属性发生变化时产生的过渡效果，同一个元素通过两个不同的途径获取样式，而第二个途径当某种改变发生（例如hover）时才能获取样式，这样就会产生过渡动画。可以认为它有两个关键帧（Transition ＋ Transform ＝ 两个关键帧的Animation）。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2018/05/21/css-动画/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/21/css-动画/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-数据双向绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/vue-数据双向绑定/">vue-数据双向绑定demo</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/vue-数据双向绑定/" class="archive-article-date">
+  	<time datetime="2018-04-11T07:09:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><ol>
+<li>js 数据类型：null undefined string boolean number  object(array,object,fn,regexp,Date..);</li>
+<li>null 跟 undefined 区别 undefined 未定义，当var a; a 就是undefined;unll 标示一个空指针；表示即将被一个对象代替;es3 规定 undefined 派生自null 所以 undefined == null;</li>
+<li>js 函数参数传递方式 是按值传递 还是按照引用传递。简单概括：函数的参数是值传递<br>对象类型作为参数的时候传递的是地址（指针）的值（相当于新的对象堆内存中保存的是参数堆内存的地址，），而不是对象本身堆内存中的value（所有当覆盖新对象堆内存中值的时候 新对象与老对象就没有联系了；此时里面的值 就是覆盖后的值，新对象的指针保存在 栈内存中）<br>所以在这种场景，函数内部用参数去修改对象，那么查找到的还是原对象，因为指向相同，所以修改的话原对象也受影响。如果新实例化一个对象赋值给改指针，那么指针指向的就是一个全新的对象了，和原来指向的对象失去联系</li>
+</ol>
+        
+          <a class="article-more-a" href="/2018/04/11/vue-数据双向绑定/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/vue-数据双向绑定/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-webpack打包相关说说" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/08/webpack打包相关说说/">webpack打包相关说说</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/08/webpack打包相关说说/" class="archive-article-date">
+  	<time datetime="2018-03-08T10:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="webpack-打包"><a href="#webpack-打包" class="headerlink" title="webpack 打包"></a>webpack 打包</h3><blockquote>
+<p>webpack作为一个构建工具，解决了前端代码缺少模块化能力的问题。我们写的代码，经过webpack构建和包装之后，能够在浏览器以模块化的方式运行。这些能力，都是因为webpack对我们的代码进行了一层包装，本文就以webpack生成的代码入手，分析webpack是如何实现模块化的。</p>
+</blockquote>
+<p>首先我们创建一个简单入口模块index.js和一个依赖模块bar.js：<br>
+        
+          <a class="article-more-a" href="/2018/03/08/webpack打包相关说说/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/08/webpack打包相关说说/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js-event-loop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -163,13 +472,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/js-event-loop/">js event loop</a>
+      <a class="article-title" href="/2018/02/12/js-event-loop/">js event loop</a>
     </h1>
   
 
         
-        <a href="/2018/05/30/js-event-loop/" class="archive-article-date">
-  	<time datetime="2018-05-30T09:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
+        <a href="/2018/02/12/js-event-loop/" class="archive-article-date">
+  	<time datetime="2018-02-12T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
 </a>
         
       </header>
@@ -178,7 +487,7 @@
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;console.log(4)&#125;,0);</span><br><span class="line">new Promise(function(resolve)&#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">    for( var i=0 ; i&lt;10000 ; i++ )&#123;</span><br><span class="line">        i==9999 &amp;&amp; resolve()</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(2)</span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">    console.log(5)</span><br><span class="line">&#125;);</span><br><span class="line">console.log(3);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/05/30/js-event-loop/#more">more >></a>
+          <a class="article-more-a" href="/2018/02/12/js-event-loop/#more">more >></a>
         
       
 
@@ -187,11 +496,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/30/js-event-loop/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/12/js-event-loop/">展开全文 >></a>
         </p>
       
 
@@ -221,36 +541,35 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-开发过程中的html" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/10/30/开发过程中的html/">开发过程中的html</a>
     </h1>
   
 
         
-        <a href="/2018/05/30/hello-world/" class="archive-article-date">
-  	<time datetime="2018-05-30T07:11:31.119Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
+        <a href="/2017/10/30/开发过程中的html/" class="archive-article-date">
+  	<time datetime="2017-10-30T10:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h1 id="工作中的html细节"><a href="#工作中的html细节" class="headerlink" title="工作中的html细节;"></a>工作中的html细节;</h1><h3 id="ios-overflow-auto-滑动加速"><a href="#ios-overflow-auto-滑动加速" class="headerlink" title="ios overflow:auto 滑动加速;"></a>ios overflow:auto 滑动加速;</h3><blockquote>
+<p>webkit-overflow-scrolling : touch; 属性控制元素在移动设备上是否使用滚动回弹效果.<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling</a></p>
+</blockquote>
+<h3 id="ios-input框上部有阴影"><a href="#ios-input框上部有阴影" class="headerlink" title="ios input框上部有阴影;"></a>ios input框上部有阴影;</h3><blockquote>
+<p>input{<br>    -webkit-appearance: none;<br>}</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/30/开发过程中的html/#more">more >></a>
+        
       
 
       
@@ -258,11 +577,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/30/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/30/开发过程中的html/">展开全文 >></a>
         </p>
       
 
@@ -292,26 +622,38 @@
 
 
   
-    <article id="post-hello-world-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-浏览器重绘、重排" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/hello-world-1/">hello world</a>
+      <a class="article-title" href="/2017/09/30/浏览器重绘、重排/">浏览器重绘、重排</a>
     </h1>
   
 
         
-        <a href="/2018/05/30/hello-world-1/" class="archive-article-date">
-  	<time datetime="2018-05-30T06:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
+        <a href="/2017/09/30/浏览器重绘、重排/" class="archive-article-date">
+  	<time datetime="2017-09-30T10:18:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="游览器redraw-reflew"><a href="#游览器redraw-reflew" class="headerlink" title="游览器redraw,reflew"></a>游览器redraw,reflew</h2><ol>
+<li>首先要明白浏览器是的一个渲染页面过程。<br>浏览器从下载文档到显示页面是个复杂的过程，期间会伴随着 重绘和重排。各厂家的浏览器渲染过程基本都大同小异，过程基本就是浏览器拿到HTML文档，然后根据DOM元素的几何属性来构建出一颗DOM渲染树，（display:none隐藏的DOM 不会被渲染，而且visibility:hidden隐藏的DOM 则会存在于这颗树中）。此时DOM树的各个节点的几何位置基本确定。浏览器就可以将元素放置正确的位置，然后在根据DOM是样式属性来绘制整个页面。(除了table其他便签都是遇到立马渲染不会等到其关闭标签出现才开始渲染，table由于内部元素不确定所以会等到出现后在一起渲染，而且table渲染可能会需要多次排列 才能确定)</li>
+</ol>
+<p>2.重绘就是当元素的外观发生变化的时候，比如visibility、background、outline等,浏览器会根据新属性来重新绘制该DOM，重绘不会带来重新布局，所以不一定会伴随重排，重排是更加严重的变化。</p>
+<ol start="3">
+<li>重排</li>
+</ol>
+<blockquote>
+<p>3.1. DOM元素的几何属性变化<br>　　当DOM元素的几何属性变化时，渲染树中的相关节点就会失效，浏览器会根据DOM元素的变化重新构建渲染树中失效的节点。之后，会根据新的渲染树重新绘制这部分页面。而且，当前元素的重排也许会带来相关元素的重排。例如，容器节点的渲染树改变时，会触发子节点的重新计算，也会触发其后续兄弟节点的重排，祖先节点需要重新计算子节点的尺寸也会产生重排。最后，每个元素都将发生重绘。可见，重排一定会引起浏览器的重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/09/30/浏览器重绘、重排/#more">more >></a>
         
       
 
@@ -320,11 +662,101 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/30/hello-world-1/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/30/浏览器重绘、重排/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-prototype和-proto" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/19/prototype和-proto/">prototype和__proto__</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/19/prototype和-proto/" class="archive-article-date">
+  	<time datetime="2017-09-19T10:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="prototype和proto"><a href="#prototype和proto" class="headerlink" title="prototype和proto"></a>prototype和<strong>proto</strong></h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>1 所有的对象多有<strong>proto</strong> 属性,这个属性属于该对象的原型；<br>2 所有的函数对象都有prototype,当一个函数被设置为构造函数式，他的prototype 属性就是被设置为 它的所有实例 <strong>proto</strong>属性的 原型<br>3 两者关系:对象的内部原型(<strong>proto</strong>)和构造器的原型（prototype）的关系。</p>
+</blockquote>
+<h3 id="所有构造器-函数的proto-都指向-Function-prototype"><a href="#所有构造器-函数的proto-都指向-Function-prototype" class="headerlink" title="所有构造器/函数的proto 都指向 Function.prototype;"></a>所有构造器/函数的<strong>proto</strong> 都指向 Function.prototype;</h3>
+        
+          <a class="article-more-a" href="/2017/09/19/prototype和-proto/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/19/prototype和-proto/">展开全文 >></a>
         </p>
       
 
@@ -404,29 +836,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
     </ul>
@@ -445,6 +861,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">js vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">js,vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -490,45 +934,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
-  	  	
-    	</section>
     
   </div>
   

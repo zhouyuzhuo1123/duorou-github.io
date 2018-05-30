@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhouyuzhuo1123.github.io">
-  <title>Archives: 2018 | 多肉的博客</title>
+  <title>浏览器重绘、重排 | 多肉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="也许似乎大概是 然后未必不见得">
-<meta name="keywords" content="html,css,js,vue,angular,node">
-<meta property="og:type" content="website">
-<meta property="og:title" content="多肉的博客">
-<meta property="og:url" content="https://zhouyuzhuo1123.github.io/archives/2018/index.html">
+  <meta name="description" content="游览器redraw,reflew 首先要明白浏览器是的一个渲染页面过程。浏览器从下载文档到显示页面是个复杂的过程，期间会伴随着 重绘和重排。各厂家的浏览器渲染过程基本都大同小异，过程基本就是浏览器拿到HTML文档，然后根据DOM元素的几何属性来构建出一颗DOM渲染树，（display:none隐藏的DOM 不会被渲染，而且visibility:hidden隐藏的DOM 则会存在于这颗树中）。此时D">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器重绘、重排">
+<meta property="og:url" content="https://zhouyuzhuo1123.github.io/2017/09/30/浏览器重绘、重排/index.html">
 <meta property="og:site_name" content="多肉的博客">
-<meta property="og:description" content="也许似乎大概是 然后未必不见得">
+<meta property="og:description" content="游览器redraw,reflew 首先要明白浏览器是的一个渲染页面过程。浏览器从下载文档到显示页面是个复杂的过程，期间会伴随着 重绘和重排。各厂家的浏览器渲染过程基本都大同小异，过程基本就是浏览器拿到HTML文档，然后根据DOM元素的几何属性来构建出一颗DOM渲染树，（display:none隐藏的DOM 不会被渲染，而且visibility:hidden隐藏的DOM 则会存在于这颗树中）。此时D">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-30T10:31:27.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多肉的博客">
-<meta name="twitter:description" content="也许似乎大概是 然后未必不见得">
+<meta name="twitter:title" content="浏览器重绘、重排">
+<meta name="twitter:description" content="游览器redraw,reflew 首先要明白浏览器是的一个渲染页面过程。浏览器从下载文档到显示页面是个复杂的过程，期间会伴随着 重绘和重排。各厂家的浏览器渲染过程基本都大同小异，过程基本就是浏览器拿到HTML文档，然后根据DOM元素的几何属性来构建出一颗DOM渲染树，（display:none隐藏的DOM 不会被渲染，而且visibility:hidden隐藏的DOM 则会存在于这颗树中）。此时D">
   
     <link rel="alternative" href="/atom.xml" title="多肉的博客" type="application/atom+xml">
   
@@ -140,216 +141,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浏览器重绘、重排" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浏览器重绘、重排
+    </h1>
+  
+
+        
+        <a href="/2017/09/30/浏览器重绘、重排/" class="archive-article-date">
+  	<time datetime="2017-09-30T10:18:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="游览器redraw-reflew"><a href="#游览器redraw-reflew" class="headerlink" title="游览器redraw,reflew"></a>游览器redraw,reflew</h2><ol>
+<li>首先要明白浏览器是的一个渲染页面过程。<br>浏览器从下载文档到显示页面是个复杂的过程，期间会伴随着 重绘和重排。各厂家的浏览器渲染过程基本都大同小异，过程基本就是浏览器拿到HTML文档，然后根据DOM元素的几何属性来构建出一颗DOM渲染树，（display:none隐藏的DOM 不会被渲染，而且visibility:hidden隐藏的DOM 则会存在于这颗树中）。此时DOM树的各个节点的几何位置基本确定。浏览器就可以将元素放置正确的位置，然后在根据DOM是样式属性来绘制整个页面。(除了table其他便签都是遇到立马渲染不会等到其关闭标签出现才开始渲染，table由于内部元素不确定所以会等到出现后在一起渲染，而且table渲染可能会需要多次排列 才能确定)</li>
+</ol>
+<p>2.重绘就是当元素的外观发生变化的时候，比如visibility、background、outline等,浏览器会根据新属性来重新绘制该DOM，重绘不会带来重新布局，所以不一定会伴随重排，重排是更加严重的变化。</p>
+<ol start="3">
+<li>重排</li>
+</ol>
+<blockquote>
+<p>3.1. DOM元素的几何属性变化<br>　　当DOM元素的几何属性变化时，渲染树中的相关节点就会失效，浏览器会根据DOM元素的变化重新构建渲染树中失效的节点。之后，会根据新的渲染树重新绘制这部分页面。而且，当前元素的重排也许会带来相关元素的重排。例如，容器节点的渲染树改变时，会触发子节点的重新计算，也会触发其后续兄弟节点的重排，祖先节点需要重新计算子节点的尺寸也会产生重排。最后，每个元素都将发生重绘。可见，重排一定会引起浏览器的重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>3.2. DOM树的结构变化<br>　　当DOM树的结构变化时，例如节点的增减、移动等，也会触发重排。浏览器引擎布局的过程，类似于树的前序遍历，是一个从上到下从左到右的过程。通常在这个过程中，当前元素不会再影响其前面已经遍历过的元素。所以，如果在body最前面插入一个元素，会导致整个文档的重新渲染，而在其后插入一个元素，则不会影响到前面的元素。</p>
+</blockquote>
+<blockquote>
+<p>3.3. 获取某些属性<br>　　浏览器引擎可能会针对重排做了优化。比如Opera，它会等到有足够数量的变化发生，或者等到一定的时间，或者等一个线程结束，再一起处理，这样就只发生一次重排。但除了渲染树的直接变化，当获取一些属性时，浏览器为取得正确的值也会触发重排。这样就使得浏览器的优化失效了。这些属性包括：offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft、clientWidth、clientHeight、getComputedStyle() (currentStyle in IE)。所以，在多次使用这些值时应进行缓存。<br>　　此外，改变元素的一些样式，调整浏览器窗口大小等等也都将触发重排。<br>　　<br>4.减少重排措施：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. 将多次改变样式属性的操作合并成一次操作。例如，</span><br><span class="line">　　JS:</span><br><span class="line">    var changeDiv = document.getElementById(‘changeDiv’);</span><br><span class="line">    changeDiv.style.color = ‘#093′;</span><br><span class="line">    changeDiv.style.background = ‘#eee’;</span><br><span class="line">    changeDiv.style.height = ’200px’;</span><br><span class="line">　　可以合并为：</span><br><span class="line">　　CSS:</span><br><span class="line">    div.changeDiv &#123;</span><br><span class="line">    background: #eee;</span><br><span class="line">    color: #093;</span><br><span class="line">    height: 200px;</span><br><span class="line">    &#125;</span><br><span class="line">　　JS:</span><br><span class="line">    document.getElementById(‘changeDiv’).className = ‘changeDiv’;</span><br><span class="line">2. 将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。</span><br><span class="line">3. 在内存中多次操作节点，完成后再添加到文档中去。例如要异步获取表格数据，渲染到页面。可以先取得数据后在内存中构建整个表格的html片段，再一次性添加到文档中去，而不是循环添加每一行。</span><br><span class="line">4. 由于display属性为none的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发2次重排。</span><br><span class="line">5. 在需要经常获取那些引起浏览器重排的属性值时，要缓存到变量。</span><br><span class="line">　　在最近几次面试中比较常问的一个问题：在前端如何实现一个表格的排序。如果应聘者的方案中考虑到了如何减少重绘和重排的影响，将是使人满意的方案。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/setTimeout和setTinerval时间精度/" class="archive-article-date">
-  	<time datetime="2018-05-30T10:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/setTimeout和setTinerval时间精度/">setTimeout和setTinerval时间精度</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhouyuzhuo1123.github.io/2017/09/30/浏览器重绘、重排/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/css-动画/" class="archive-article-date">
-  	<time datetime="2018-05-21T10:12:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/10/30/开发过程中的html/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          开发过程中的html
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/19/prototype和-proto/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">prototype和__proto__</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/css-动画/">css 动画</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/11/vue-数据双向绑定/" class="archive-article-date">
-  	<time datetime="2018-04-11T07:09:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/11/vue-数据双向绑定/">vue-数据双向绑定demo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/08/webpack打包相关说说/" class="archive-article-date">
-  	<time datetime="2018-03-08T10:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/08/webpack打包相关说说/">webpack打包相关说说</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/12/js-event-loop/" class="archive-article-date">
-  	<time datetime="2018-02-12T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/12/js-event-loop/">js event loop</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -372,8 +350,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
