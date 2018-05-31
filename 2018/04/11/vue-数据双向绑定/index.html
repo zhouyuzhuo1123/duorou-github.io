@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://zhouyuzhuo1123.github.io">
   <title>vue-数据双向绑定demo | 多肉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="js js 数据类型：null undefined string boolean number  object(array,object,fn,regexp,Date..); null 跟 undefined 区别 undefined 未定义，当var a; a 就是undefined;unll 标示一个空指针；表示即将被一个对象代替;es3 规定 undefined 派生自null 所以 und">
+  <meta name="description" content="数据双向绑定数据双向绑定可以分为三部分  observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher watcher：观察者，当监听的数据变化，做出相应。 dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。1234567891011121314151617181920212">
 <meta name="keywords" content="js,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-数据双向绑定demo">
 <meta property="og:url" content="https://zhouyuzhuo1123.github.io/2018/04/11/vue-数据双向绑定/index.html">
 <meta property="og:site_name" content="多肉的博客">
-<meta property="og:description" content="js js 数据类型：null undefined string boolean number  object(array,object,fn,regexp,Date..); null 跟 undefined 区别 undefined 未定义，当var a; a 就是undefined;unll 标示一个空指针；表示即将被一个对象代替;es3 规定 undefined 派生自null 所以 und">
+<meta property="og:description" content="数据双向绑定数据双向绑定可以分为三部分  observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher watcher：观察者，当监听的数据变化，做出相应。 dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。1234567891011121314151617181920212">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-30T10:29:35.887Z">
+<meta property="og:updated_time" content="2018-05-31T04:37:26.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-数据双向绑定demo">
-<meta name="twitter:description" content="js js 数据类型：null undefined string boolean number  object(array,object,fn,regexp,Date..); null 跟 undefined 区别 undefined 未定义，当var a; a 就是undefined;unll 标示一个空指针；表示即将被一个对象代替;es3 规定 undefined 派生自null 所以 und">
+<meta name="twitter:description" content="数据双向绑定数据双向绑定可以分为三部分  observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher watcher：观察者，当监听的数据变化，做出相应。 dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。1234567891011121314151617181920212">
   
     <link rel="alternative" href="/atom.xml" title="多肉的博客" type="application/atom+xml">
   
@@ -161,21 +161,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><ol>
-<li>js 数据类型：null undefined string boolean number  object(array,object,fn,regexp,Date..);</li>
-<li>null 跟 undefined 区别 undefined 未定义，当var a; a 就是undefined;unll 标示一个空指针；表示即将被一个对象代替;es3 规定 undefined 派生自null 所以 undefined == null;</li>
-<li>js 函数参数传递方式 是按值传递 还是按照引用传递。简单概括：函数的参数是值传递<br>对象类型作为参数的时候传递的是地址（指针）的值（相当于新的对象堆内存中保存的是参数堆内存的地址，），而不是对象本身堆内存中的value（所有当覆盖新对象堆内存中值的时候 新对象与老对象就没有联系了；此时里面的值 就是覆盖后的值，新对象的指针保存在 栈内存中）<br>所以在这种场景，函数内部用参数去修改对象，那么查找到的还是原对象，因为指向相同，所以修改的话原对象也受影响。如果新实例化一个对象赋值给改指针，那么指针指向的就是一个全新的对象了，和原来指向的对象失去联系</li>
-</ol>
-<a id="more"></a>
-<ol start="4">
-<li>js event loop<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">settimeout(()=&gt;&#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    for(let a = 1;a&lt;1000;a++ )&#123;</span><br><span class="line">        if(a === 999)&#123;</span><br><span class="line">            resolve()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    conosle.log(2)</span><br><span class="line">&#125;).then(()=&gt;&#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;)</span><br><span class="line">console.log(4)</span><br></pre></td></tr></table></figure>
+        <h3 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h3><p>数据双向绑定可以分为三部分</p>
+<ol>
+<li>observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher</li>
+<li>watcher：观察者，当监听的数据变化，做出相应。</li>
+<li>dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">class Observer&#123;</span><br><span class="line">    constructor(data)&#123;</span><br><span class="line">        this.walk(data)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    walk(data)&#123;</span><br><span class="line">        Object.keys(data).forEach((key,i)=&gt;&#123;</span><br><span class="line">            defineReactive(data,key,data[key])</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function defineReactive(data,key,val)&#123;</span><br><span class="line">    observer(val);</span><br><span class="line">    let dep = new Dep();</span><br><span class="line">    Object.defineProperty(data,key,&#123;</span><br><span class="line">        enumerable:true,</span><br><span class="line">        congifurable:true,</span><br><span class="line">        get()&#123;</span><br><span class="line">            if(Dep.target)&#123;</span><br><span class="line">                dep.depend()</span><br><span class="line">            &#125;</span><br><span class="line">            return val</span><br><span class="line">        &#125;,</span><br><span class="line">        set(newVal)&#123;</span><br><span class="line">            if(newVal === val)&#123;</span><br><span class="line">                return </span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                val = newVal</span><br><span class="line">                observer(newVal)</span><br><span class="line">                dep.notice(newVal);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function observer(val)&#123;</span><br><span class="line">    if(Object.prototype.toString.call(val) === &apos;[object Object]&apos;)&#123;</span><br><span class="line">        new Observer(val)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Dep &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.subs = []    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    depend()&#123;</span><br><span class="line">        if(Dep.target)&#123;</span><br><span class="line">            this.subs.push(Dep.target)</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    notice(val)&#123;</span><br><span class="line">        for(var i = 0;i&lt;this.subs.length;i++)&#123;</span><br><span class="line">            this.subs[i] &amp;&amp; this.subs[i].fn(val)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dep.target = null</span><br><span class="line"></span><br><span class="line">class Watcher&#123;</span><br><span class="line">    constructor(name,fn)&#123;</span><br><span class="line">        this.exp = exp;</span><br><span class="line">        this.fn = fn;</span><br><span class="line">        Dep.target = this;</span><br><span class="line">        data[exp]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var data = &#123;</span><br><span class="line">    a:1,</span><br><span class="line">    b:2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer(data);</span><br><span class="line"></span><br><span class="line">new Watcher(&apos;a&apos;,(val)=&gt;&#123;</span><br><span class="line">    console.log(&apos;new value:&apos;+val)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    data.a = 3;</span><br><span class="line">&#125;, 3000);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<!-- more -->
-<ol start="5">
-<li>regexp  去除 字符串开头和结尾的所有空格；（\s(空白字符匹配)）</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var pattern = /^\s+|\s+$/ig;</span><br><span class="line">&apos; ss  &apos;.replace(pattern,&apos;&apos;);</span><br></pre></td></tr></table></figure>
+<p>这是一个数据双向绑定的小demo!</p>
 
       
 
@@ -405,11 +398,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,11 +410,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
             
             <div class="clearfix"></div>
