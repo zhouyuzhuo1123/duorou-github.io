@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://zhouyuzhuo1123.github.io">
   <title>vue-数据双向绑定demo | 多肉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据双向绑定数据双向绑定可以分为三部分  observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher watcher：观察者，当监听的数据变化，做出相应。 dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。1234567891011121314151617181920212">
+  <meta name="description" content="数据双向绑定">
 <meta name="keywords" content="js,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-数据双向绑定demo">
 <meta property="og:url" content="https://zhouyuzhuo1123.github.io/2018/04/11/vue-数据双向绑定/index.html">
 <meta property="og:site_name" content="多肉的博客">
-<meta property="og:description" content="数据双向绑定数据双向绑定可以分为三部分  observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher watcher：观察者，当监听的数据变化，做出相应。 dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。1234567891011121314151617181920212">
+<meta property="og:description" content="数据双向绑定">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-31T04:37:26.552Z">
+<meta property="og:updated_time" content="2018-08-17T03:04:47.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-数据双向绑定demo">
-<meta name="twitter:description" content="数据双向绑定数据双向绑定可以分为三部分  observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher watcher：观察者，当监听的数据变化，做出相应。 dep：observer和watcher的连接者，每一个observer都有一个独立的dep，dep.subs存放所有相关观察者的更新回调。1234567891011121314151617181920212">
+<meta name="twitter:description" content="数据双向绑定">
   
     <link rel="alternative" href="/atom.xml" title="多肉的博客" type="application/atom+xml">
   
@@ -48,11 +48,13 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/zyz.jpeg" class="js-avatar">
+			<img src="/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">zhouyuzhuo1123</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">也许似乎大概是 然后未必不见得</p>
 		
 
 		<nav class="header-menu">
@@ -96,11 +98,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/zyz.jpeg" class="js-avatar">
+				<img src="/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">zhouyuzhuo1123</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>也许似乎大概是 然后未必不见得<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -161,7 +165,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h3><p>数据双向绑定可以分为三部分</p>
+        <h3 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h3><a id="more"></a>
+<p>数据双向绑定可以分为三部分</p>
 <ol>
 <li>observer:里面主要工作是监听对象上的所有属性，在属性值改变之后通知相应的watcher</li>
 <li>watcher：观察者，当监听的数据变化，做出相应。</li>
@@ -398,11 +403,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
